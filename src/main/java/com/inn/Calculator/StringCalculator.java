@@ -47,7 +47,7 @@ public class StringCalculator {
 				for (String number : arr) {
 					int numberToBeAdded = Integer.parseInt(number);
 					if(numberToBeAdded < 0)
-						throw new NegativeNumberException("Negative numbers not allowed!");
+						throw new NegativeNumberException("Negative numbers not allowed!" + number);
 					sum += Integer.parseInt(number);
 					}
 				}
