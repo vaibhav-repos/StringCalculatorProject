@@ -77,7 +77,16 @@ public class StringCalculatorTest {
 			Assert.fail();
 			
 		}catch(NegativeNumberException nx) {
-			Assert.assertTrue(true);
+			Assert.assertEquals("Negative Numbers not allowed: [-2]",nx.getMessage());		}
+	}
+
+	@Test
+	public void addNumberStringWithMultipleNegativeNumberTest() {
+		try {
+			int sum = calculate.add(",-19,-12,-2");
+			
+		}catch(NegativeNumberException nx) {
+			Assert.assertEquals("Negative Numbers not allowed: [-19, -12, -2]",nx.getMessage());
 		}
 	}
 
