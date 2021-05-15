@@ -33,5 +33,10 @@ public class StringCalculatorTest {
 	public void addNumberStringWithNextLineCharacterTest() {
 		Assert.assertEquals(7,calculate.add("1,1\n 5"));
 	}
+	
+	@Test
+	public void addNumberStringWithDelimitersCharacterTest() {
+		Assert.assertEquals(3,calculate.add("//;\\n1;2"));
+	}
 
 }
