@@ -130,5 +130,14 @@ public class StringCalculatorTest {
 			e.printStackTrace();
 		}
 	}
-
+	
+	@Test
+	public void addNumberStringWithMultipleDelimitersLengthGreaterThanThreeTest() {
+		try {
+			Assert.assertEquals(6,calculate.add("//[**][%%]\\n1**2%%3"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
