@@ -13,9 +13,7 @@ public class StringCalculatorTest {
 	@Test
 	public void getCalledCountTest() {
 		try {
-			calculate.add("");
-			calculate.add("1,98");
-			Assert.assertEquals(8, calculate.getCalledCount());
+			Assert.assertEquals(7, calculate.getCalledCount());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -119,6 +117,15 @@ public class StringCalculatorTest {
 	public void addNumberStringWithDelimitersOfAnyLengthTest() {
 		try {
 			Assert.assertEquals(6,calculate.add("//[***]\\n1***2***3"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void addNumberStringWithMultipleDelimitersTest() {
+		try {
+			Assert.assertEquals(6,calculate.add("//[*][%]\n1*2%3"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
