@@ -3,6 +3,7 @@ package com.inn;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.inn.Calculator.NegativeNumberException;
 import com.inn.Calculator.StringCalculator;
 
 public class StringCalculatorTest {
@@ -11,32 +12,73 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void addEmptyStringTest() {
-		Assert.assertEquals(0,calculate.add(""));
+		try {
+			Assert.assertEquals(0,calculate.add(""));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	@Test
 	public void addOneNumberStringTest() {
-		Assert.assertEquals(2,calculate.add("2"));
+		try {
+			Assert.assertEquals(2,calculate.add("2"));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	@Test
 	public void addTwoNumberStringTest() {
-		Assert.assertEquals(2,calculate.add("1,1"));
+		try {
+			Assert.assertEquals(2,calculate.add("1,1"));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	@Test
 	public void addMoreThanTwoNumberStringTest() {
-		Assert.assertEquals(11,calculate.add("1,1,4,5"));
+		try {
+			Assert.assertEquals(11,calculate.add("1,1,4,5"));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	@Test
 	public void addNumberStringWithNextLineCharacterTest() {
-		Assert.assertEquals(7,calculate.add("1,1\n 5"));
+		try {
+			Assert.assertEquals(7,calculate.add("1,1\n 5"));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
 	}
 	
 	@Test
 	public void addNumberStringWithDelimitersCharacterTest() {
-		Assert.assertEquals(3,calculate.add("//;\\n1;2"));
+		try {
+			Assert.assertEquals(14,calculate.add("//;\\n12;2"));
+		} catch (NegativeNumberException e) {
+			e.printStackTrace();
+			Assert.fail();
+		}
+	}
+	
+	@Test
+	public void addNumberStringWithNegativeNumberTest() {
+		try {
+			int sum = calculate.add("12;-2");
+			Assert.fail();
+			
+		}catch(NegativeNumberException nx) {
+			Assert.assertEquals("Negative numbers not allowed!", nx.getMessage());
+		}
 	}
 
 }
