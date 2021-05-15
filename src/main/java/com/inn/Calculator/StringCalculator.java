@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringCalculator {
+	public static int countAddCalls = 0;
 
 	public String addNumbers(String nums) {
 		String ans = "";
@@ -36,8 +37,12 @@ public class StringCalculator {
 			}
 		return ans;
 	}
+	public int getCalledCount() {
+		return countAddCalls;
+	}
 
 	public int add(String numbers) throws NegativeNumberException {
+		countAddCalls++;
 		try {
 			int sum = 0;
 			int flag = 0;
