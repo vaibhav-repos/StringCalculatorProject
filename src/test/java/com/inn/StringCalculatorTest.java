@@ -28,5 +28,10 @@ public class StringCalculatorTest {
 	public void addMoreThanTwoNumberStringTest() {
 		Assert.assertEquals(11,calculate.add("1,1,4,5"));
 	}
+	
+	@Test
+	public void addNumberStringWithNextLineCharacterTest() {
+		Assert.assertEquals(7,calculate.add("1,1\n 5"));
+	}
 
 }

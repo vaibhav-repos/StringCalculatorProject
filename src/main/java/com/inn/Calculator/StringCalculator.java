@@ -8,11 +8,14 @@ public class StringCalculator {
 		else if(numbers.length() == 1)
 			return Integer.parseInt(numbers);
 		else {
-			String arr[] = numbers.split(",");
+			if(numbers.contains(",\n"))
+				return -1;
+			String arr[] = numbers.split(",|\n");
 			int sum = 0;
 			for(String number: arr)
 			{
-				sum += Integer.parseInt(number);
+				String s = number.strip();
+				sum += Integer.parseInt(s);
 			}
 			return sum;
 		}
