@@ -59,7 +59,7 @@ public class StringCalculator {
 						negative.add(numberToBeAdded);
 					}
 					else
-						sum += Integer.parseInt(number);
+						sum += Integer.parseInt(number) > 1000? 0:Integer.parseInt(number);
 					}
 				if(flag == 1)
 					throw new NegativeNumberException("Negative Numbers not allowed: "+negative.toString());

@@ -105,5 +105,14 @@ public class StringCalculatorTest {
 			Assert.fail();
 		}
 	}
+	
+	@Test
+	public void addNumberStringWithNumberGreaterThanOneThousand() {
+		try {
+			Assert.assertEquals(5,calculate.add("0,1221,5"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
